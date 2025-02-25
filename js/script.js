@@ -1,3 +1,4 @@
+// Phishing Game
 // List of emails. Either phishing emails or legitimate emails.
 // Each email is represented with a variable 'isPhishing' which is set to true or false.
 const emails = [
