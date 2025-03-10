@@ -126,6 +126,50 @@ ol {
   margin-bottom: 10px;
  }
  
+ /* Style for the maze container */
+#maze-container {
+  display: grid;
+  grid-template-columns: repeat(10, 30px); /* 10 columns */
+  grid-template-rows: repeat(10, 30px);    /* 10 rows */
+  gap: 2px;
+  margin-top: 30px; /* Space between the header and maze */
+  border: 3px solid rgb(0, 68, 128); /* Matching border color from your header */
+  background-color: white;
+}
+
+/* Individual cells for the maze */
+.maze-cell {
+  width: 30px;
+  height: 30px;
+  background-color: lightgray;
+  border: 1px solid #ddd;
+}
+
+/* Wall styling - representing firewalls */
+.wall {
+  background-color: rgb(234, 67, 53); /* A red color for firewalls */
+}
+
+/* Path styling - free space */
+.path {
+  background-color: white;
+}
+
+/* Player styling - blue character for the player */
+.player {
+  background-color: rgb(0, 68, 128); /* Matching your header color */
+  border-radius: 50%;
+}
+
+/* Game-over or Win message */
+.game-status {
+  text-align: center;
+  font-size: 2em;
+  margin-top: 20px;
+  color: rgb(0, 68, 128);
+  font-weight: bold;
+}
+
   
   /* Media Query for small screens */
   /*@media (max-width: 768px) {
