@@ -1,40 +1,40 @@
 const express = require('express');
-const bodyParser = require('body-parser'); // Corrected spelling for bodyParser
-const { Client } = require('pg');  // Import the Client class, not client
+const bodyParser = require('body-parser'); 
+const { Client } = require('pg');  
 const bcrypt = require('bcryptjs');
-const path = require('path'); // You missed importing the path module
+const path = require('path'); 
 
 const app = express();
 const port = 3000;
 
-// Form data from middleware
+// middleware to form data
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Serve static CSS file (assuming it's in a folder named 'public')
+// push static css file
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Connection to PostgreSQL database
+// Connection to my sql database Postgresql17
 const dbClient = new Client({
     host: 'localhost',
     port: 5432,
-    user: 'ekononovs1',  // Replace with your PostgreSQL username
-    database: 'cyber_data',  // Your database name
+    user: 'ekononovs1',  
+    database: 'cyber_data',  
 });
 
 dbClient.connect()
     .then(() => console.log('Connected to PostgreSQL'))
     .catch(err => console.error('Connection error', err.stack));
 
-// Serve the registration form
+// Push the registration form
 app.get('/signup', (req, res) => {
     res.sendFile(path.join('/Volumes/PRJECTCYBER/NetworkGameProject', 'register.html'));  // Correct path to register.html
 });
 
-// Handle form submission
+// submission handling
 app.post('/register', async (req, res) => {
     const { 'first-name': firstName, 'second-name': secondName, dob, email, school, password } = req.body;
 
-    // Hash the password before saving to the database
+    // Hashing the password before adding to database
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const query = {
@@ -44,9 +44,9 @@ app.post('/register', async (req, res) => {
 
     try {
         const result = await dbClient.query(query);
-        console.log(result.rows[0]);  // Log the new user info
+        console.log(result.rows[0]);  // Logging the new user information
 
-        res.send('Registration Successful!');  // Or redirect to a login page, etc.
+        res.send('Registration Successful!'); 
     } catch (error) {
         console.error(error);
         res.send('Error in registration');
