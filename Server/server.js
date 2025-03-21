@@ -44,7 +44,7 @@ app.post('/register', async (req, res) => {
 
     try {
         const result = await dbClient.query(query);
-        console.log(result.rows[0]);  // Logging the new user information
+        console.log(result.rows[0]);  // Logging the new user
 
         res.send('Registration Successful!'); 
     } catch (error) {
