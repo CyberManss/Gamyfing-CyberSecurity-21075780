@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Register an account</h1>
+    </header>
+
+    <div class="form-container">
+        <h2>Account Creation</h2>
+        <form action="/register" method="POST">
+            <!-- First name -->
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" required><br><br>
+
+            <!-- Surname -->
+            <label for="second-name">Second Name:</label>
+            <input type="text" id="second-name" name="second-name" required><br><br>
+
+            <!-- date of birth -->
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required><br><br>
+
+            <!-- email -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <!-- name of school -->
+            <label for="school">School:</label>
+            <input type="text" id="school" name="school" required><br><br>
+
+            <!-- Password -->
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <!-- Enter button -->
+            <input type="submit" class="button" value="Sign Up">
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2025 Network Security Game</p>
+    </footer>
+
+</body>
+</html>
