@@ -124,11 +124,11 @@ app.get('/teacher-dashboard', async (req, res) => {
         return res.status(403).send('Access denied');
     }
 
-    const teacherEmail = req.session.email; // Assuming email is stored in session
+    const teacherEmail = req.session.email; // Making sure and relying on email being stored correctly
     const domain = teacherEmail.split('@')[1];
 
     try {
-        // Querying the users table to fetch students' details along with their scores
+        // Querying all teh details of the student from teh table of data
         const result = await dbClient.query(
             `SELECT id, first_name, second_name, email, school, score
              FROM users
